@@ -33,6 +33,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        // 4.7
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        sceneView.addGestureRecognizer(gestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,14 +86,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // 4.3
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor, planeAnchor.alignment == .vertical else { return }
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         let grid = Grid(anchor: planeAnchor)
         self.grids.append(grid)
         node.addChildNode(grid)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor, planeAnchor.alignment == .vertical else { return }
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         let grid = self.grids.filter { grid in
             return grid.anchor.identifier == planeAnchor.identifier
             }.first
@@ -99,5 +103,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
         foundGrid.update(anchor: planeAnchor)
+    }
+    
+    // 4.8
+    @objc func tapped(gesture: UITapGestureRecognizer) {
+        // Get 2D position of touch event on screen
+        let touchPosition = gesture.location(in: sceneView)
+        
+        // Translate those 2D points to 3D points using hitTest (existing plane)
+        let hitTestResults = sceneView.hitTest(touchPosition, types: .existingPlaneUsingExtent)
+        
+        guard let hitTest = hitTestResults.first, let anchor = hitTest.anchor as? ARPlaneAnchor else { // , let gridIndex = grids.index(where: { $0.anchor == anchor }) else {
+            return
+        }
+        addTV(hitTest)
+    }
+    
+    // 4.9
+    func addTV(_ hitTestResult: ARHitTestResult) {
+        let scene = SCNScene(named: "art.scnassets/tv.scn")!
+        let tvNode = scene.rootNode.childNode(withName: "tv_node", recursively: true)
+        tvNode?.position = SCNVector3(hitTestResult.worldTransform.columns.3.x,hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
+        // 2.
+        self.sceneView.scene.rootNode.addChildNode(tvNode!)
     }
 }
