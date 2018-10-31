@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610932A121896D65008716A4 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610932A021896D65008716A4 /* Grid.swift */; };
 		61BD775C21895CE600782D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD775B21895CE600782D1B /* AppDelegate.swift */; };
 		61BD775E21895CE600782D1B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BD775D21895CE600782D1B /* art.scnassets */; };
 		61BD776021895CE600782D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD775F21895CE600782D1B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610932A021896D65008716A4 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		61BD775821895CE600782D1B /* NextReality_Tutorial9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextReality_Tutorial9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BD775B21895CE600782D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BD775D21895CE600782D1B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		61BD775A21895CE600782D1B /* NextReality_Tutorial9 */ = {
 			isa = PBXGroup;
 			children = (
+				610932A021896D65008716A4 /* Grid.swift */,
 				61BD775B21895CE600782D1B /* AppDelegate.swift */,
 				61BD775D21895CE600782D1B /* art.scnassets */,
 				61BD775F21895CE600782D1B /* ViewController.swift */,
@@ -141,6 +144,7 @@
 			files = (
 				61BD776021895CE600782D1B /* ViewController.swift in Sources */,
 				61BD775C21895CE600782D1B /* AppDelegate.swift in Sources */,
+				610932A121896D65008716A4 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8954457DB2;
 				INFOPLIST_FILE = NextReality_Tutorial9/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8954457DB2;
 				INFOPLIST_FILE = NextReality_Tutorial9/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
