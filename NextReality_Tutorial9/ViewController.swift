@@ -4,6 +4,7 @@
 //
 //  Created by Ambuj Punn on 10/30/18.
 //  Copyright © 2018 Ambuj Punn. All rights reserved.
+//  With help from https://hackernoon.com/playing-videos-in-augmented-reality-using-arkit-7df3db3795b7
 //
 
 import UIKit
@@ -116,6 +117,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         guard let hitTest = hitTestResults.first else {
             return
         }
+       
         addTV(hitTest)
     }
     
@@ -124,6 +126,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let scene = SCNScene(named: "art.scnassets/tv.scn")!
         let tvNode = scene.rootNode.childNode(withName: "tv_node", recursively: true)
         tvNode?.position = SCNVector3(hitTestResult.worldTransform.columns.3.x,hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
+        
+        // 5.1
+        let tvScreenPlaneNode = tvNode?.childNode(withName: "screen", recursively: true)
+        let tvScreenPlaneNodeGeometry = tvScreenPlaneNode?.geometry as! SCNPlane
+       
+        let tvVideoNode = SKVideoNode(fileNamed: "video.mov")
+        let videoScene = SKScene(size: .init(width: tvScreenPlaneNodeGeometry.width*1000, height: tvScreenPlaneNodeGeometry.height*1000))
+        videoScene.addChild(tvVideoNode)
+        
+        tvVideoNode.position = CGPoint(x: videoScene.size.width/2, y: videoScene.size.height/2)
+        tvVideoNode.size = videoScene.size
+        
+        let tvScreenMaterial = tvScreenPlaneNodeGeometry.materials.first(where: { $0.name == "video" })
+        tvScreenMaterial?.diffuse.contents = videoScene
+        
+        tvVideoNode.play()
+        // 4.9
         self.sceneView.scene.rootNode.addChildNode(tvNode!)
     }
 }
