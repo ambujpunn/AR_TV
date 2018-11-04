@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		610932A121896D65008716A4 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610932A021896D65008716A4 /* Grid.swift */; };
+		619CB85F218FB8F3007C84F5 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 619CB85E218FB8F3007C84F5 /* video.mov */; };
 		61BD775C21895CE600782D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD775B21895CE600782D1B /* AppDelegate.swift */; };
 		61BD775E21895CE600782D1B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BD775D21895CE600782D1B /* art.scnassets */; };
 		61BD776021895CE600782D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD775F21895CE600782D1B /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		610932A021896D65008716A4 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		619CB85E218FB8F3007C84F5 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		61BD775821895CE600782D1B /* NextReality_Tutorial9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextReality_Tutorial9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BD775B21895CE600782D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BD775D21895CE600782D1B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		61BD775A21895CE600782D1B /* NextReality_Tutorial9 */ = {
 			isa = PBXGroup;
 			children = (
+				619CB85E218FB8F3007C84F5 /* video.mov */,
 				610932A021896D65008716A4 /* Grid.swift */,
 				61BD775B21895CE600782D1B /* AppDelegate.swift */,
 				61BD775D21895CE600782D1B /* art.scnassets */,
@@ -131,6 +134,7 @@
 				61BD775E21895CE600782D1B /* art.scnassets in Resources */,
 				61BD776821895CE900782D1B /* LaunchScreen.storyboard in Resources */,
 				61BD776521895CE900782D1B /* Assets.xcassets in Resources */,
+				619CB85F218FB8F3007C84F5 /* video.mov in Resources */,
 				61BD776321895CE600782D1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
