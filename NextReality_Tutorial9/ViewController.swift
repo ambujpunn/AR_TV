@@ -113,7 +113,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Translate those 2D points to 3D points using hitTest (existing plane)
         let hitTestResults = sceneView.hitTest(touchPosition, types: .existingPlaneUsingExtent)
         
-        guard let hitTest = hitTestResults.first, let anchor = hitTest.anchor as? ARPlaneAnchor else { // , let gridIndex = grids.index(where: { $0.anchor == anchor }) else {
+        guard let hitTest = hitTestResults.first else {
             return
         }
         addTV(hitTest)
@@ -124,7 +124,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let scene = SCNScene(named: "art.scnassets/tv.scn")!
         let tvNode = scene.rootNode.childNode(withName: "tv_node", recursively: true)
         tvNode?.position = SCNVector3(hitTestResult.worldTransform.columns.3.x,hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
-        // 2.
         self.sceneView.scene.rootNode.addChildNode(tvNode!)
     }
 }
