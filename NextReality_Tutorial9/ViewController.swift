@@ -13,7 +13,6 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    // 4.2
     var grids = [Grid]()
     
     override func viewDidLoad() {
@@ -24,17 +23,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        // 4.4
         sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
         
         // Create a new scene
-        // 4.1
         let scene = SCNScene()
         
         // Set the scene to the view
         sceneView.scene = scene
         
-        // 4.7
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         sceneView.addGestureRecognizer(gestureRecognizer)
     }
@@ -44,7 +40,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        // 4.5
         configuration.planeDetection = .horizontal
 
         // Run the view's session
@@ -84,7 +79,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    // 4.3
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         let grid = Grid(anchor: planeAnchor)
@@ -105,7 +99,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         foundGrid.update(anchor: planeAnchor)
     }
     
-    // 4.8
     @objc func tapped(gesture: UITapGestureRecognizer) {
         // Get 2D position of touch event on screen
         let touchPosition = gesture.location(in: sceneView)
@@ -119,7 +112,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         addTV(hitTest)
     }
     
-    // 4.9
     func addTV(_ hitTestResult: ARHitTestResult) {
         let scene = SCNScene(named: "art.scnassets/tv.scn")!
         let tvNode = scene.rootNode.childNode(withName: "tv_node", recursively: true)
